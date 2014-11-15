@@ -1,0 +1,28 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<div class="frames"></div>
+<script>
+    function msgIsSentHandler (event) {
+        var msg = event.data;
+        var $frames = $(".child-frame");
+             for (var i = 0; i < $frames.length; ++i) {
+             var frame = $frames[i];
+             var win = frame.contentWindow;
+             win.postMessage(msg, '*');
+         }
+    }
+    if (window.addEventListener) {
+        window.addEventListener("message", msgIsSentHandler, false);
+    }
+    else {
+        window.attachEvent("onmessage", msgIsSentHandler);
+    }
+</script>
+<style  type="text/css">
+    [frame-drtv] {
+        border: 1px solid rgb(236, 137, 137);
+        width: 304px;
+        display: inline-block;
+        margin: 10px;
+        background: rgb(240, 204, 204);
+    }
+</style>

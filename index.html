@@ -1,0 +1,23 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src='scripts/angular.js'></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Chat</title>
+
+    <script src="app.js"></script>
+    <script src="controllers/framesCtrl.js"></script>
+    <script src="directives/frameDrtv.js"></script>
+    <script src="services/framesService.js"></script>
+    <link  rel="stylesheet" type="text/css" href="styles/frames.css">
+</head>
+<body>
+    <div ng-app='framesApp'>
+        <div ng-controller="framesCtrl" class="add-frame">
+            <p>Let's add a new frame...</p>
+            <div class="fa fa-plus" ng-click="add()"></div>
+            <iframe class="parent-frame">
+            </iframe>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,46 @@
+<div class="message-block">
+    <div class="messages"></div>
+    <input placeholder="enter your message..."/>
+    <button>Send</button>
+</div>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    if (window.addEventListener) {
+        window.addEventListener("message", msgDistributionHandler, false);
+    }
+    else {
+        window.attachEvent("onmessage", msgDistributionHandler);
+    }
+    var $messages = $('.messages');
+    function msgDistributionHandler(event) {
+        var $msgDiv = $('<div>').html(event.data);
+        $msgDiv.appendTo($messages)
+    }
+</script>
+<style  type="text/css">
+    .message-block {
+        position: absolute;
+        bottom: 10px;
+    }
+    .message-block .sender {
+        color: rgb(236, 137, 137);
+    }
+    .message-block .text {
+        color: grey;
+        font-style: italic;
+    }
+    .message-block button {
+        color: rgb(236, 137, 137);
+        border: none;
+        background: transparent;
+        cursor:pointer;
+    }
+    .message-block .messages {
+        margin-bottom: 7px;
+    }
+    .message-block input {
+        width: 240px;
+    }
+
+</style >
